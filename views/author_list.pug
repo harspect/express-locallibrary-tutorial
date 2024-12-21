@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1= title
+
+    if author_list.length
+        each author in author_list
+            dl
+                dt #[a(href=author.url) #{author.name}]
+                if author.date_of_death_formatted
+                    dd #[strong #{author.date_of_birth_formatted} - #{author.date_of_death_formatted}]
+                else if author.date_of_birth_formatted
+                    dd #[strong #{author.date_of_birth_formatted}]
+    else
+        p There are no authors
